@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheet.css" type="text/css">
+</head>
+<body class="page">
+
+<div class = "main">
+    <div class = "container">
+        <h1>Register New User<img src="dog.png" align="left" /></h1><br/>
+        <div class="container rounded">
+            <form action="#"
+                  th:action = "@{/processuser}"
+                  th:object = "${user}"
+                  method="post">
+                <div class="form-group col-md9">
+                    <input type = "hidden" class="form-control" th:field="*{id}" />
+                    First Name:<br />
+                    <input type = "text" class="form-control" th:field = "*{firstname}" />
+                    <span th:if = "${#fields.hasErrors('firstname')}"
+                          th:errors = "*{firstname}"></span><br />
+                    Last Name:<br />
+                    <input type = "text" class="form-control" th:field = "*{lastname}" />
+                    <span th:if = "${#fields.hasErrors('lastname')}"
+                          th:errors = "*{lastname}"></span><br />
+                    Username:<br />
+                    <input type = "text" class="form-control" th:field = "*{username}" />
+                    <span th:if = "${#fields.hasErrors('username')}"
+                          th:errors = "*{username}"></span><br />
+                    Password:<br />
+                    <input type = "text" class="form-control" th:field = "*{password}" />
+                    <span th:if = "${#fields.hasErrors('password')}"
+                          th:errors = "*{password}"></span><br />
+                    <input class="btn btn-primary" type = "submit" value = "Submit" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>
